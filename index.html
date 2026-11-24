@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Find your people and your path: societies, events, courses and careers help for students.">
+  <meta name="theme-color" content="#0E0B14">
+  <title>FindYourPeople</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Applies saved theme/accessibility settings before the page draws -->
+  <script src="display.js"></script>
+  <!-- AI-assisted: first draft generated with Claude (Anthropic). See README.md. -->
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="utility-bar">
+      <div class="container utility-inner">
+        <button type="button" id="theme-toggle" class="tool-btn" aria-pressed="false">
+          <span class="tool-icon" aria-hidden="true">🌙</span> Dark mode
+        </button>
+        <button type="button" id="a11y-open" class="tool-btn" aria-haspopup="dialog" aria-controls="a11y-dialog">
+          <span class="tool-aa" aria-hidden="true">Aa</span> Accessibility
+        </button>
+      </div>
+    </div>
+    <div class="container header-inner">
+      <a class="brand" href="#/">
+        <span class="brand-blob" aria-hidden="true"></span>
+        <span>Find<span class="brand-accent">Your</span>People</span>
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav-list" role="list">
+          <li><a href="#/" data-nav="home">Home</a></li>
+          <li><a href="#/societies" data-nav="societies">Societies</a></li>
+          <li><a href="#/courses" data-nav="courses">Courses</a></li>
+          <li><a href="#/careers" data-nav="careers">Careers</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <div class="container">
+      <div id="load-error" class="notice notice-error" role="alert" hidden>
+        <h2>Couldn't load the site data</h2>
+        <p>
+          Browsers block local data files when you open a page by double-clicking it.
+          Open this folder in VS Code and click <strong>Go Live</strong> (Live Server extension),
+          or run <code>python3 -m http.server</code> in this folder and visit
+          <code>http://localhost:8000</code>.
+        </p>
+      </div>
+    </div>
+
+    <!-- ===================== HOME ===================== -->
+    <div id="home-view" data-view="home" hidden>
+      <section class="hero" aria-labelledby="home-heading">
+        <div class="container">
+          <p class="eyebrow">New here? Same. 👋</p>
+          <h1 id="home-heading" tabindex="-1">
+            Find your <span class="hl">people.</span><br>
+            Find your <span class="hl">path.</span>
+          </h1>
+          <p class="hero-lead">Societies, events, courses and careers help in one place. Built by students, for students, so nobody has to do uni alone.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="#/societies">Explore societies</a>
+            <a class="btn btn-ghost btn-lg" href="#/careers">Get careers help</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <section class="block" aria-labelledby="explore-heading">
+          <h2 id="explore-heading" class="block-title">What are you after?</h2>
+          <ul class="tile-grid" role="list">
+            <li>
+              <a class="tile" href="#/societies">
+                <span class="tile-emoji" aria-hidden="true">🎉</span>
+                <span class="tile-title">Societies &amp; events</span>
+                <span class="tile-text"><span id="stat-societies">Lots of</span> clubs to join, from choirs to climbing.</span>
+              </a>
+            </li>
+            <li>
+              <a class="tile" href="#/courses">
+                <span class="tile-emoji" aria-hidden="true">🎓</span>
+                <span class="tile-title">Courses &amp; careers</span>
+                <span class="tile-text">See what you'll learn, the degree you'll get and the jobs it leads to.</span>
+              </a>
+            </li>
+            <li>
+              <a class="tile tile-dark" href="#/careers">
+                <span class="tile-emoji" aria-hidden="true">🚀</span>
+                <span class="tile-title">Careers help</span>
+                <span class="tile-text">CVs, cover letters, placements. Book a chat with Beckett Careers on MyHub.</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="block" aria-labelledby="vibe-heading">
+          <h2 id="vibe-heading" class="block-title">Pick your vibe</h2>
+          <ul class="vibe-list" role="list">
+            <li><a class="vibe" href="#/societies/Sport"><span aria-hidden="true">⚽</span> Sport</a></li>
+            <li><a class="vibe" href="#/societies/Music"><span aria-hidden="true">🎵</span> Music</a></li>
+            <li><a class="vibe" href="#/societies/Arts"><span aria-hidden="true">🎨</span> Arts</a></li>
+            <li><a class="vibe" href="#/societies/Academic"><span aria-hidden="true">📚</span> Academic</a></li>
+            <li><a class="vibe" href="#/societies/Culture"><span aria-hidden="true">🌍</span> Culture</a></li>
+            <li><a class="vibe" href="#/societies/Volunteering"><span aria-hidden="true">🤝</span> Volunteering</a></li>
+          </ul>
+        </section>
+
+        <section class="block" aria-labelledby="home-events-heading">
+          <div class="section-head">
+            <h2 id="home-events-heading" class="block-title">Coming up soon</h2>
+            <a class="more-link" href="#/societies">See all events <span aria-hidden="true">→</span></a>
+          </div>
+          <ul id="home-events" class="event-list" role="list"></ul>
+          <p id="home-no-events" class="notice" hidden>No upcoming events right now. Check back soon!</p>
+        </section>
+      </div>
+
+      <section id="socials" class="socials" aria-labelledby="socials-heading">
+        <div class="container">
+          <h2 id="socials-heading" class="block-title">Follow LBU</h2>
+          <p class="socials-lead">Keep up with campus news, events and student stories on Leeds Beckett University's official channels.</p>
+          <ul class="social-grid" role="list">
+            <li>
+              <a class="social" href="https://www.instagram.com/leedsbeckettofficial/" target="_blank" rel="noopener noreferrer">
+                <span class="social-emoji" aria-hidden="true">📸</span>
+                <span class="social-name">Instagram</span>
+                <span class="social-handle">@leedsbeckettofficial</span>
+                <span class="sr-only">(opens in a new tab)</span>
+              </a>
+            </li>
+            <li>
+              <a class="social" href="https://www.facebook.com/leedsbeckett/" target="_blank" rel="noopener noreferrer">
+                <span class="social-emoji" aria-hidden="true">👍</span>
+                <span class="social-name">Facebook</span>
+                <span class="social-handle">/leedsbeckett</span>
+                <span class="sr-only">(opens in a new tab)</span>
+              </a>
+            </li>
+            <li>
+              <a class="social" href="https://twitter.com/leedsbeckett" target="_blank" rel="noopener noreferrer">
+                <span class="social-emoji" aria-hidden="true">💬</span>
+                <span class="social-name">X (Twitter)</span>
+                <span class="social-handle">@leedsbeckett</span>
+                <span class="sr-only">(opens in a new tab)</span>
+              </a>
+            </li>
+            <li>
+              <a class="social" href="https://www.youtube.com/user/leedsbeckettuni" target="_blank" rel="noopener noreferrer">
+                <span class="social-emoji" aria-hidden="true">▶️</span>
+                <span class="social-name">YouTube</span>
+                <span class="social-handle">leedsbeckettuni</span>
+                <span class="sr-only">(opens in a new tab)</span>
+              </a>
+            </li>
+          </ul>
+          <p class="fine-print">Links go to official LBU accounts, as listed on leedsbeckett.ac.uk (checked Nov 2026). This site is an unofficial student project.</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===================== SOCIETIES (list) ===================== -->
+    <div id="list-view" class="container page" data-view="societies" hidden>
+      <section class="search-panel" aria-labelledby="search-heading">
+        <h1 id="search-heading" tabindex="-1">Find your <span class="hl">people</span></h1>
+
+        <form id="filters" role="search" novalidate>
+          <div class="field">
+            <label for="search">Search societies</label>
+            <input id="search" name="search" type="search"
+                   placeholder="e.g. running, beats, cooking"
+                   autocomplete="off" enterkeyhint="search">
+          </div>
+
+          <fieldset class="field">
+            <legend>Interest</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="interest" value="" checked><span>All</span></label>
+              <label class="chip"><input type="radio" name="interest" value="Sport"><span>⚽ Sport</span></label>
+              <label class="chip"><input type="radio" name="interest" value="Music"><span>🎵 Music</span></label>
+              <label class="chip"><input type="radio" name="interest" value="Arts"><span>🎨 Arts</span></label>
+              <label class="chip"><input type="radio" name="interest" value="Academic"><span>📚 Academic</span></label>
+              <label class="chip"><input type="radio" name="interest" value="Culture"><span>🌍 Culture</span></label>
+              <label class="chip"><input type="radio" name="interest" value="Volunteering"><span>🤝 Volunteering</span></label>
+            </div>
+          </fieldset>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="campus">Campus</label>
+              <select id="campus" name="campus">
+                <option value="">Any campus</option>
+                <option value="City">City</option>
+                <option value="Headingley">Headingley</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="day">Day</label>
+              <select id="day" name="day">
+                <option value="">Any day</option>
+                <option>Monday</option>
+                <option>Tuesday</option>
+                <option>Wednesday</option>
+                <option>Thursday</option>
+                <option>Friday</option>
+                <option>Saturday</option>
+                <option>Sunday</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="reset" class="btn btn-light">Clear filters</button>
+        </form>
+      </section>
+
+      <section class="block" aria-labelledby="societies-heading">
+        <div class="section-head">
+          <h2 id="societies-heading" class="block-title">Societies</h2>
+          <p id="results-count" class="results-count" role="status" aria-live="polite"></p>
+        </div>
+        <ul id="society-list" class="card-grid" role="list"></ul>
+        <p id="no-results" class="notice" hidden>
+          No societies match those filters. Try a different search or
+          <button type="button" class="link-btn" data-action="clear">clear all filters</button>.
+        </p>
+      </section>
+
+      <section class="block" aria-labelledby="events-heading">
+        <div class="section-head">
+          <h2 id="events-heading" class="block-title">Upcoming events</h2>
+          <p id="events-count" class="results-count"></p>
+        </div>
+        <ul id="event-list" class="event-list" role="list"></ul>
+        <p id="no-events" class="notice" hidden>No upcoming events match your filters right now. Check back soon!</p>
+      </section>
+    </div>
+
+    <!-- ===================== SOCIETY DETAIL ===================== -->
+    <article id="detail-view" class="container page detail" data-view="society" hidden aria-labelledby="detail-name"></article>
+
+    <!-- ===================== COURSES (list) ===================== -->
+    <div id="courses-view" class="container page" data-view="courses" hidden>
+      <section class="search-panel" aria-labelledby="courses-heading">
+        <h1 id="courses-heading" tabindex="-1">Find your <span class="hl">path</span></h1>
+        <p>See what you'll learn on a course, the degree you'll get at the end and the jobs it can lead to.</p>
+
+        <form id="course-filters" role="search" novalidate>
+          <div class="field-row field-row-wide">
+            <div class="field">
+              <label for="course-search">Search courses or jobs</label>
+              <input id="course-search" name="q" type="search"
+                     placeholder="e.g. coding, music, police, accountant"
+                     autocomplete="off" enterkeyhint="search">
+            </div>
+            <div class="field">
+              <label for="course-subject">Subject area</label>
+              <select id="course-subject" name="subject">
+                <option value="">All subjects</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <section class="block" aria-labelledby="course-list-heading">
+        <div class="section-head">
+          <h2 id="course-list-heading" class="block-title">Courses</h2>
+          <p id="course-count" class="results-count" role="status" aria-live="polite"></p>
+        </div>
+        <ul id="course-list" class="card-grid" role="list"></ul>
+        <p id="no-courses" class="notice" hidden>No courses match. Try another word, like a job title.</p>
+        <p class="fine-print">
+          Course titles and awards follow LBU's published subject pages (checked Nov 2026).
+          "What you'll learn" and "Jobs" are typical examples for each subject, not official module lists or guaranteed outcomes.
+          Always check the official course page for current details, entry requirements and fees.
+        </p>
+      </section>
+    </div>
+
+    <!-- ===================== COURSE DETAIL ===================== -->
+    <article id="course-detail-view" class="container page detail" data-view="course" hidden aria-labelledby="course-name"></article>
+
+    <!-- ===================== CAREERS ===================== -->
+    <div id="careers-view" data-view="careers" hidden>
+      <section class="hero hero-compact" aria-labelledby="careers-heading">
+        <div class="container">
+          <p class="eyebrow">Beckett Careers 🚀</p>
+          <h1 id="careers-heading" tabindex="-1">Get <span class="hl">career-ready</span>, starting now.</h1>
+          <p class="hero-lead">LBU's careers team can help you with CVs, cover letters, placements and more. Book a free appointment through MyHub.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="https://myhub.leedsbeckett.ac.uk/students/login/" target="_blank" rel="noopener noreferrer">
+              Book on MyHub <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div class="container page">
+        <section class="block" aria-labelledby="help-heading">
+          <h2 id="help-heading" class="block-title">What they can help with</h2>
+          <ul class="tile-grid tile-grid-4" role="list">
+            <li class="tile tile-static">
+              <span class="tile-emoji" aria-hidden="true">📄</span>
+              <h3 class="tile-title">CVs</h3>
+              <p class="tile-text">Get your CV checked and learn how to make it stand out. They won't write it for you, but they'll help you nail it.</p>
+            </li>
+            <li class="tile tile-static">
+              <span class="tile-emoji" aria-hidden="true">✉️</span>
+              <h3 class="tile-title">Cover letters</h3>
+              <p class="tile-text">Tailor your letter to each job and show why you're a great fit.</p>
+            </li>
+            <li class="tile tile-static">
+              <span class="tile-emoji" aria-hidden="true">🏢</span>
+              <h3 class="tile-title">Placements</h3>
+              <p class="tile-text">Find and apply for work placements and get real experience before you graduate.</p>
+            </li>
+            <li class="tile tile-static">
+              <span class="tile-emoji" aria-hidden="true">💼</span>
+              <h3 class="tile-title">Jobs &amp; interviews</h3>
+              <p class="tile-text">Part-time work, graduate vacancies, application forms and interview practice.</p>
+            </li>
+          </ul>
+        </section>
+
+        <section class="block" aria-labelledby="book-heading">
+          <h2 id="book-heading" class="block-title">How to book an appointment</h2>
+          <ol class="steps">
+            <li><strong>Open MyHub</strong> and log in with your university username.</li>
+            <li><strong>Go to Appointments</strong> and choose the type of help you need.</li>
+            <li><strong>Pick a time</strong> from the calendar of available slots.</li>
+            <li><strong>Bring your CV, cover letter or questions.</strong> Even a rough draft helps!</li>
+          </ol>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://myhub.leedsbeckett.ac.uk/students/login/" target="_blank" rel="noopener noreferrer">
+              Log in to MyHub <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span>
+            </a>
+            <a class="btn btn-light" href="https://www.leedsbeckett.ac.uk/student-information/careers-and-opportunities/careers-advice/" target="_blank" rel="noopener noreferrer">
+              About Beckett Careers <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span>
+            </a>
+            <a class="btn btn-light" href="https://www.leedsbeckett.ac.uk/student-information/careers-and-opportunities/placements/" target="_blank" rel="noopener noreferrer">
+              Placements info <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span>
+            </a>
+          </div>
+          <p class="fine-print">
+            MyHub and Beckett Careers are official LBU services. This site doesn't collect any of your details.
+            Booking steps are based on LBU's published guidance (Nov 2026) and may change.
+          </p>
+        </section>
+
+        <section class="block callout" aria-labelledby="explore-courses-heading">
+          <h2 id="explore-courses-heading" class="block-title">Not sure where your course leads?</h2>
+          <p>Browse courses to see typical jobs, and the skills you'll build along the way.</p>
+          <a class="btn btn-dark" href="#/courses">Explore courses &amp; careers</a>
+        </section>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-brand">Find<span class="brand-accent">Your</span>People</p>
+        <p><strong>Hackathon demo.</strong> The societies, events and contact details are made up.
+          This is an unofficial student project, not affiliated with or endorsed by Leeds Beckett University or Leeds Beckett Students' Union.</p>
+        <p>No cookies, tracking or personal data are used on this site. If you change the display settings, your choices are saved in this browser only and never sent anywhere.
+          Links to official channels open external websites, which have their own privacy policies.</p>
+        <p class="footer-settings"><button type="button" id="a11y-open-footer" class="link-btn" aria-haspopup="dialog" aria-controls="a11y-dialog">Display &amp; accessibility settings</button></p>
+        <p>Built with AI assistance (Claude by Anthropic). See README for our AI-use statement.</p>
+      </div>
+      <nav aria-label="Official LBU links">
+        <h2 class="footer-heading">Official LBU links</h2>
+        <ul class="footer-links" role="list">
+          <li><a href="https://myhub.leedsbeckett.ac.uk/students/login/" target="_blank" rel="noopener noreferrer">MyHub<span class="sr-only"> (opens in a new tab)</span></a></li>
+          <li><a href="https://www.leedsbeckett.ac.uk/subjects/" target="_blank" rel="noopener noreferrer">All LBU subjects &amp; courses<span class="sr-only"> (opens in a new tab)</span></a></li>
+          <li><a href="https://www.instagram.com/leedsbeckettofficial/" target="_blank" rel="noopener noreferrer">Instagram<span class="sr-only"> (opens in a new tab)</span></a></li>
+          <li><a href="https://www.facebook.com/leedsbeckett/" target="_blank" rel="noopener noreferrer">Facebook<span class="sr-only"> (opens in a new tab)</span></a></li>
+          <li><a href="https://twitter.com/leedsbeckett" target="_blank" rel="noopener noreferrer">X (Twitter)<span class="sr-only"> (opens in a new tab)</span></a></li>
+          <li><a href="https://www.youtube.com/user/leedsbeckettuni" target="_blank" rel="noopener noreferrer">YouTube<span class="sr-only"> (opens in a new tab)</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- ===================== DISPLAY & ACCESSIBILITY DIALOG ===================== -->
+  <dialog id="a11y-dialog" class="a11y-dialog" aria-labelledby="a11y-title" aria-describedby="a11y-intro">
+    <form id="a11y-form" class="a11y-form" method="dialog">
+      <div class="dialog-head">
+        <h2 id="a11y-title">Display &amp; accessibility</h2>
+        <button type="submit" class="close-btn" value="close" aria-label="Close settings">✕</button>
+      </div>
+      <p id="a11y-intro" class="dialog-intro">Make the site easier to see and read. Changes apply straight away and are saved in this browser only.</p>
+
+      <fieldset class="setting">
+        <legend>Theme</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="theme" value="system"><span><span aria-hidden="true">📱</span> Match my device</span></label>
+          <label class="chip"><input type="radio" name="theme" value="light"><span><span aria-hidden="true">☀️</span> Light</span></label>
+          <label class="chip"><input type="radio" name="theme" value="dark"><span><span aria-hidden="true">🌙</span> Dark</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="setting">
+        <legend>Text size</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="text" value="normal"><span><span class="size-a" aria-hidden="true" style="font-size:1rem">A</span> Default</span></label>
+          <label class="chip"><input type="radio" name="text" value="large"><span><span class="size-a" aria-hidden="true" style="font-size:1.25rem">A</span> Large</span></label>
+          <label class="chip"><input type="radio" name="text" value="xlarge"><span><span class="size-a" aria-hidden="true" style="font-size:1.5rem">A</span> Extra large</span></label>
+        </div>
+      </fieldset>
+
+      <div class="setting switch-row">
+        <label for="opt-contrast">
+          <span class="switch-title">High contrast</span>
+          <span class="switch-desc">Pure black and white, thicker outlines and underlined links.</span>
+          <span class="switch-state" aria-hidden="true"></span>
+        </label>
+        <input type="checkbox" id="opt-contrast" name="contrast" class="switch" role="switch">
+      </div>
+
+      <div class="setting switch-row">
+        <label for="opt-readable">
+          <span class="switch-title">Easy-read text</span>
+          <span class="switch-desc">Clearer font with more space between letters, words and lines. Can help with dyslexia and low vision.</span>
+          <span class="switch-state" aria-hidden="true"></span>
+        </label>
+        <input type="checkbox" id="opt-readable" name="readable" class="switch" role="switch">
+      </div>
+
+      <div class="setting switch-row">
+        <label for="opt-motion">
+          <span class="switch-title">Reduce motion</span>
+          <span class="switch-desc">Turns off animations and hover movement.</span>
+          <span class="switch-state" aria-hidden="true"></span>
+        </label>
+        <input type="checkbox" id="opt-motion" name="motion" class="switch" role="switch">
+      </div>
+
+      <div class="dialog-actions">
+        <button type="button" id="a11y-reset" class="btn btn-light">Reset to default</button>
+        <button type="submit" class="btn btn-primary" value="done">Done</button>
+      </div>
+      <p class="fine-print">Tip: you can also zoom with Ctrl/Cmd and + (or pinch), and use your device's screen reader. This site supports both.</p>
+    </form>
+  </dialog>
+
+  <!-- Announces display changes to screen readers -->
+  <p id="a11y-status" class="sr-only" role="status" aria-live="polite"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
