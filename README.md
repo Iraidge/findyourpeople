@@ -47,7 +47,7 @@ The page loads `data.json` with `fetch()`, which browsers block when you open th
 
 External links and course titles were correct in November 2026 but may change. The LBU website is always the official source.
 
-**Note:** the sample events run from 24 Nov to 9 Dec 2026. Events whose date has passed still show, marked **Past**, listed after any upcoming ones, so the demo keeps working.
+**Note:** the sample events run from 23 Nov to 9 Dec 2026. Events whose date has passed still show, marked **Past**, listed after any upcoming ones, so the demo keeps working.
 
 ## Display and accessibility settings
 

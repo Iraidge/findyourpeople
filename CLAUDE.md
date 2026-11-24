@@ -28,11 +28,11 @@ Keep data in `data.json`, never hard-coded in HTML or JS, so real data can be sw
   "meta": { "note": "", "updated": "2026-11-23" },
   "societies": [
     { "id": "night-owls-running", "name": "", "interest": "Sport | Music | Arts | Academic | Culture | Volunteering",
-      "campus": "City | Headingley | Both", "day": "Tuesday", "time": "18:30", "location": "",
+      "campus": "City | Headingley | Both", "day": "Monday", "time": "18:30", "location": "",
       "summary": "", "description": "", "tags": [""], "contact": "name@example.com" }
   ],
   "events": [
-    { "id": "ev-welcome-run", "title": "", "societyId": "night-owls-running", "date": "2026-11-24", "time": "18:30",
+    { "id": "ev-welcome-run", "title": "", "societyId": "night-owls-running", "date": "2026-11-23", "time": "18:30",
       "campus": "Headingley", "location": "", "description": "" }
   ],
   "coursesNote": "",
