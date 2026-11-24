@@ -40,12 +40,14 @@ The page loads `data.json` with `fetch()`, which browsers block when you open th
 | Content | Status |
 |---------|--------|
 | Societies, events and contact emails | **Made up** (all contact emails use `example.com`) |
-| Social media links | **Real LBU accounts**, copied from the footer of leedsbeckett.ac.uk in Nov 2026: Instagram, Facebook, X and YouTube. We didn't find LinkedIn or TikTok there, so they're left out. Add them only after checking the official site |
+| Social media links | **Real LBU accounts**, copied from the footer of leedsbeckett.ac.uk in Nov 2026: Instagram, Facebook, X and YouTube. We didn't find LinkedIn or TikTok there, so they're left out |
 | MyHub, Beckett Careers and placements links | **Real LBU pages** (checked Nov 2026). The MyHub link goes to its login page |
 | Course titles and awards | Based on **LBU's published subject pages** (Nov 2026). Each one links to its official subject page, not a guessed course URL |
 | "What you'll learn", skills and jobs | **General examples** for each subject (similar to careers sites like Prospects). These are *not* official module lists or guaranteed outcomes, and the site says so |
 
-Before the demo, open each external link to check it still works, and confirm the course titles on the LBU website.
+External links and course titles were correct in November 2026 but may change. The LBU website is always the official source.
+
+**Note:** the site hides past events, and the sample events run from 24 Nov to 9 Dec 2026. After that the events lists will be empty until the dates in `data.json` are updated.
 
 ## Display and accessibility settings
 
@@ -64,6 +66,7 @@ The header has a **Dark mode** switch and an **Accessibility** button that opens
 - Windows High Contrast (forced colours) mode is supported too.
 
 ## Accessibility features
+
 - Skip link, landmarks, headings in order and one `<h1>` per view
 - Native form controls, each with a visible label. The interest chips are real radio buttons
 - Tap targets of at least 44px and a focus ring (white and purple) that shows up on white, purple and black backgrounds
@@ -84,11 +87,13 @@ This project was built with AI help. We used Claude (Anthropic), through Claude 
 
 The current version sets **no cookies** and loads **no third-party scripts, fonts or embeds**.
 
-**Display settings (localStorage):** when someone changes a display or accessibility setting, their choice is saved in their own browser under the key `fyp-display`. Nothing is saved unless they change something, the entry is deleted if they reset to default, and it is never sent anywhere. We think this falls under PECR's "strictly necessary" exemption for interface settings the user explicitly chooses, so no consent banner should be needed. The footer and the settings panel both explain it. If you add a full privacy notice later, mention it there too. This is a judgement call, so check it with whoever reviews compliance for the hackathon.
+**Display settings (localStorage):** when someone changes a display or accessibility setting, their choice is saved in their own browser under the key `fyp-display`. Nothing is saved unless they change something, the entry is deleted if they reset to default, and it is never sent anywhere. We think this falls under PECR's "strictly necessary" exemption for interface settings the user explicitly chooses, so no consent banner should be needed. The footer and the settings panel both explain it. This is our reading of the rules, not legal advice.
 
 External links to social media and MyHub take people to those sites, which have their own cookie and privacy policies. The footer says this.
 
-The features below would change that (UK GDPR / Data Protection Act 2018 and PECR):
+### If the project grows
+
+These features would bring in extra requirements under UK GDPR, the Data Protection Act 2018 and PECR:
 
 | Feature | What it would need |
 |---------|--------------------|
@@ -96,8 +101,8 @@ The features below would change that (UK GDPR / Data Protection Act 2018 and PEC
 | Analytics | **Cookie consent banner** before anything loads, plus a **privacy notice** |
 | **Embedded** Instagram, X, YouTube or Facebook feeds, or Google Maps | These set third-party cookies, so they need **consent**. Keep using plain links, or click-to-load placeholders |
 | Google Fonts or other CDNs | They send visitors' IP addresses to a third party. **Self-host** the font files or mention them in the privacy notice |
-| Sign-up, "I'm interested" or contact forms | Personal data, so you need a **privacy notice**, a lawful basis, a retention period and secure storage |
-| Booking careers appointments *on this site* | Don't do it. Keep linking to the official MyHub, which handles students' data under LBU's own privacy policy |
+| Sign-up, "I'm interested" or contact forms | Personal data, so it needs a **privacy notice**, a lawful basis, a retention period and secure storage |
+| Booking careers appointments *on this site* | Avoid this. Keep linking to the official MyHub, which handles students' data under LBU's own privacy policy |
 | Real society contacts or committee names | Personal data, so get **permission** from the people named. Prefer role-based addresses |
-| Using LBU's name, logo or branding more prominently | You'd need **permission from LBU**. Keep the "unofficial" disclaimer |
+| Using LBU's name, logo or branding more prominently | Needs **permission from LBU**. Keep the "unofficial" disclaimer |
 | Sensitive interests (faith, LGBTQ+, health) linked to a person | **Special category data** under UK GDPR, which needs extra care |
