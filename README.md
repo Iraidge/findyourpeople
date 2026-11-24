@@ -8,7 +8,11 @@ A mobile-first website, built at a hackathon, that helps new students find socie
 
 ## How to run it
 
-The page loads `data.json` with `fetch()`, which browsers block when you open the page from a `file://` address. You need to serve the folder:
+**Live demo:** <https://iraidge.github.io/findyourpeople/>
+
+To run it on your own computer:
+
+The page loads `data.json` with `fetch()`, which browsers block when you open the page from a `file://` address. So serve the folder instead:
 
 - **VS Code:** install **Live Server**, open this folder, then click **Go Live** (or right-click `index.html` and choose **Open with Live Server**).
 - **No VS Code:** run `python3 -m http.server` in this folder and go to <http://localhost:8000>.

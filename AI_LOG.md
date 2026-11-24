@@ -18,5 +18,6 @@ AI tool: **Claude (Anthropic)**, used through Claude Code in VS Code. The team s
 | 2026-11-24 | README tidy-up | Reworded notes aimed at the team for public readers and added a note about the event dates | Asked for a final check |
 | 2026-11-24 | Past events shown as "Past" | Kept past events visible with a Past badge, listed after upcoming ones, and renamed the "Upcoming events" headings to "Events" | Chose this over changing the dates |
 | 2026-11-24 | Moved the welcome run to Mon 23 Nov | Moved the event and its society's meeting day from Tuesday to Monday so a past event shows in the demo | Asked for it for testing |
+| 2026-11-24 | Live demo link in README | Added the GitHub Pages link to "How to run it" | Published the site on GitHub Pages |
 
 **Data:** the societies, events and contact details are made up. The LBU links were checked against leedsbeckett.ac.uk in Nov 2026. No personal data was shared with the AI.
