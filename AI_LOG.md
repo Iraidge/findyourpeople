@@ -16,5 +16,6 @@ AI tool: **Claude (Anthropic)**, used through Claude Code in VS Code. The team s
 | 2026-11-24 | README credit line, CLAUDE.md data shape | Added a team credit line (no names) and matched the data shape to `data.json` | Asked for both changes |
 | 2026-11-24 | README AI-use statement | Replaced the to-do checklist with a public statement | Spotted the problem and asked for the fix |
 | 2026-11-24 | README tidy-up | Reworded notes aimed at the team for public readers and added a note about the event dates | Asked for a final check |
+| 2026-11-24 | Past events shown as "Past" | Kept past events visible with a Past badge, listed after upcoming ones, and renamed the "Upcoming events" headings to "Events" | Chose this over changing the dates |
 
 **Data:** the societies, events and contact details are made up. The LBU links were checked against leedsbeckett.ac.uk in Nov 2026. No personal data was shared with the AI.

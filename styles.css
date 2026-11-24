@@ -544,6 +544,10 @@ fieldset { border: 0; padding: 0; margin: 0 0 1rem; min-width: 0; }
   background: var(--inverse-bg); color: var(--inverse-text);
 }
 .badge-purple { background: var(--accent); color: var(--on-accent); }
+.badge-past { background: var(--inverse-bg); color: var(--inverse-text); font-size: .75rem; vertical-align: middle; }
+/* Past events: dashed border and a grey date tile (text stays full contrast) */
+.event.is-past { border-style: dashed; }
+.event.is-past .event-date { background: var(--surface-soft); color: var(--text); box-shadow: none; }
 .badge-row { display: flex; flex-wrap: wrap; gap: .4rem; }
 
 /* ---------- Events ---------- */

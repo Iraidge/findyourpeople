@@ -96,28 +96,34 @@
     if (now) el.textContent = text;
     else timers[el.id] = setTimeout(() => { el.textContent = text; }, 350);
   }
-  function upcomingEvents() {
-    const today = startOfToday();
-    return events
-      .filter((e) => parseDate(e.date) >= today)
-      .sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
+  function isPast(e) {
+    return parseDate(e.date) < startOfToday();
+  }
+  // Upcoming events first (soonest first), then past events (most recent first).
+  // Past events stay visible, marked "Past", because this is a demo with fixed sample dates.
+  function sortedEvents() {
+    const byDate = (a, b) => (a.date + a.time).localeCompare(b.date + b.time);
+    const upcoming = events.filter((e) => !isPast(e)).sort(byDate);
+    const past = events.filter(isPast).sort((a, b) => byDate(b, a));
+    return upcoming.concat(past);
   }
 
   // ---------- Shared templates ----------
   function eventItem(e, { showHost = true } = {}) {
     const d = parseDate(e.date);
     const host = societyById.get(e.societyId);
+    const past = isPast(e);
     const hostLine = showHost && host
       ? `<p class="event-host">Hosted by <a href="${societyUrl(host.id)}">${esc(host.name)}</a></p>` : "";
     return `
-      <li class="event">
+      <li class="event${past ? " is-past" : ""}">
         <div class="event-date" aria-hidden="true">
           <span class="dow">${esc(fmt.dow.format(d))}</span>
           <span class="dnum">${esc(fmt.day.format(d))}</span>
           <span class="mon">${esc(fmt.mon.format(d))}</span>
         </div>
         <div>
-          <h3>${esc(e.title)}</h3>
+          <h3>${past ? `<span class="badge badge-past">Past<span class="sr-only"> event:</span></span> ` : ""}${esc(e.title)}</h3>
           <p><time datetime="${esc(e.date)}T${esc(e.time)}">${esc(fmt.long.format(d))}, ${esc(e.time)}</time>
              · ${esc(e.location)}, ${esc(e.campus)} campus</p>
           <p>${esc(e.description)}</p>
@@ -132,7 +138,7 @@
 
   // ---------- Home ----------
   function renderHome() {
-    const next = upcomingEvents().slice(0, 3);
+    const next = sortedEvents().slice(0, 3);
     $("#home-events").innerHTML = next.map((e) => eventItem(e)).join("");
     $("#home-no-events").hidden = next.length > 0;
     $("#stat-societies").textContent = String(societies.length);
@@ -158,7 +164,7 @@
   }
 
   function filterEvents(f) {
-    return upcomingEvents().filter((e) => {
+    return sortedEvents().filter((e) => {
       const host = societyById.get(e.societyId);
       return (
         (!f.interest || (host && host.interest === f.interest)) &&
@@ -213,7 +219,7 @@
       document.title = `Not found – ${SITE_NAME}`;
       return;
     }
-    const upcoming = upcomingEvents().filter((e) => e.societyId === s.id);
+    const societyEvents = sortedEvents().filter((e) => e.societyId === s.id);
     const tags = (s.tags || []).map((t) => `<li>${esc(t)}</li>`).join("");
     const relatedCourses = courses.filter((c) => (c.relatedSocieties || []).includes(s.id));
 
@@ -234,10 +240,10 @@
       </div>
 
       <section class="block" aria-labelledby="detail-events-heading">
-        <h2 id="detail-events-heading" class="block-title">Upcoming events</h2>
-        ${upcoming.length
-          ? `<ul class="event-list" role="list">${upcoming.map((e) => eventItem(e, { showHost: false })).join("")}</ul>`
-          : `<p class="notice">No upcoming events listed yet. Just turn up to a regular ${esc(s.day)} session!</p>`}
+        <h2 id="detail-events-heading" class="block-title">Events</h2>
+        ${societyEvents.length
+          ? `<ul class="event-list" role="list">${societyEvents.map((e) => eventItem(e, { showHost: false })).join("")}</ul>`
+          : `<p class="notice">No events listed yet. Just turn up to a regular ${esc(s.day)} session!</p>`}
       </section>
 
       ${relatedCourses.length ? `

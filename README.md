@@ -18,7 +18,7 @@ The page loads `data.json` with `fetch()`, which browsers block when you open th
 | Route | What it shows |
 |-------|---------------|
 | `#/` | **Home**: hero, quick links, interest buttons, the next 3 events, and a "Follow LBU" section with the social media links |
-| `#/societies` | Society finder with search and filters for interest (Sport, Music, Arts, Academic, Culture, Volunteering), campus and day, plus upcoming events |
+| `#/societies` | Society finder with search and filters for interest (Sport, Music, Arts, Academic, Culture, Volunteering), campus and day, plus events (past ones are marked "Past") |
 | `#/societies/Music` | The same finder with an interest already selected (used by the interest buttons on Home) |
 | `#/society/<id>` | Society detail: meeting times, events and related courses |
 | `#/courses` | Courses and careers finder. Search by course, skill or **job title** (e.g. "police"), or filter by subject |
@@ -47,7 +47,7 @@ The page loads `data.json` with `fetch()`, which browsers block when you open th
 
 External links and course titles were correct in November 2026 but may change. The LBU website is always the official source.
 
-**Note:** the site hides past events, and the sample events run from 24 Nov to 9 Dec 2026. After that the events lists will be empty until the dates in `data.json` are updated.
+**Note:** the sample events run from 24 Nov to 9 Dec 2026. Events whose date has passed still show, marked **Past**, listed after any upcoming ones, so the demo keeps working.
 
 ## Display and accessibility settings
 
