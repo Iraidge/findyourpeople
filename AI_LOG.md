@@ -10,9 +10,10 @@ AI tool: **Claude (Anthropic)**, used through Claude Code in VS Code. The team s
 | 2026-11-23 | Main page, new purple, black and white theme, Music interest | Built the home page, restyled the site and added music societies and events | Asked for the changes and chose the colours |
 | 2026-11-23 | Courses and careers pages, LBU social links, MyHub links | Researched official LBU links and subject pages on the web, and wrote general course and career information | Asked for the feature. **Must check the links and course titles on the LBU website** |
 | 2026-11-23 | Dark mode and accessibility settings (`display.js`) | Added theme, text size, high contrast, easy-read text and reduce-motion settings | Asked for the feature |
-| 2026-11-23 | `README.md` | Wrote setup steps, an AI-use statement and privacy notes | Review before publishing |
+| 2026-11-23 | `README.md` | Wrote setup steps, an AI-use statement and privacy notes | Reviewed it |
 | 2026-11-23 | Pitch scripts (3-minute and 90-second) | Drafted both scripts and likely judge questions | Edit and rehearse |
 | 2026-11-24 | `AI_LOG.md` | Wrote this log from the session history | Keep it updated |
 | 2026-11-24 | README credit line, CLAUDE.md data shape | Added a team credit line (no names) and matched the data shape to `data.json` | Asked for both changes |
+| 2026-11-24 | README AI-use statement | Replaced the to-do checklist with a public statement | Spotted the problem and asked for the fix |
 
 **Data:** the societies, events and contact details are made up. The LBU links were checked against leedsbeckett.ac.uk in Nov 2026. No personal data was shared with the AI.

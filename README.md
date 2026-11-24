@@ -74,15 +74,11 @@ The header has a **Dark mode** switch and an **Accessibility** button that opens
 
 ## AI-use statement
 
-We used AI (Claude, by Anthropic) to draft the plan, the code and the sample data. The team is responsible for checking, testing and editing everything we submit.
+This project was built with AI help. We used Claude (Anthropic), through Claude Code in VS Code, to draft the plan, the code, the sample data and the README. The team wrote the brief, chose the features and design, and reviewed and tested the results.
 
-Before submitting, please check:
-- [ ] Leeds Beckett's current guidance on generative AI and academic integrity, plus any rules your module or course sets
-- [ ] The hackathon's rules on AI use and attribution
-- [ ] That no personal, confidential or real student data has been pasted into any AI tool
-- [ ] That every team member understands the code and could explain it
-- [ ] That the course and careers information has been checked against the official LBU pages
-- [ ] That this statement still accurately describes how you used AI
+- No personal or real student data was given to the AI.
+- The course and careers information is general guidance. It is not official LBU content, so check the linked LBU subject pages for accurate details.
+- See [AI_LOG.md](AI_LOG.md) for a change-by-change record of what the AI did and what the team did.
 
 ## Privacy and compliance notes
 
